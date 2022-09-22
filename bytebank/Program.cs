@@ -1,2 +1,56 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿//Chamando a classe que eu dei o namespace bytebank
+//Sempre quando queremos usar um arquivo, objeto, classe definido em outro arquivo,
+//devemos importar o namespace
+using bytebank;
+
+Console.WriteLine("Boas vindas ao seu banco, ByteBank!!");
+
+//Criando uma nova conta com o escopo ContaCorenete,que é uma classe
+//Criando um objeto
+ContaCorrente conta1 = new ContaCorrente();
+
+//Acessando a propriedade de uma class
+conta1.Titular = "Maria Eduarda";
+conta1.Conta = "10123-X";
+conta1.NumeroAgencia = 23;
+conta1.NomeAgencia = "Agencia Sul";
+conta1.Saldo = 300.50;
+
+ContaCorrente conta2 = new ContaCorrente();
+conta2.Titular = "Gabriel de Almeida";
+conta2.Conta = "10123-E";
+conta2.NumeroAgencia = 25;
+conta2.NomeAgencia = "Agencia Norte";
+conta2.Saldo = 100.50;
+
+//False pois o endereço de memória é diferente, são duas contas diferentes por mais que tenham os mesmo dados
+//Comparãção por tipagem
+Console.WriteLine(conta1 == conta2); 
+
+//True pois o valor dos atributos é igual em cada objeto
+//Comparação por referência
+Console.WriteLine(conta2.Titular == conta1.Titular);
+
+//Agora a comparação vai ser true pois eu passei o enrdereço de memoria de conta2 para conta1
+//conta1 = conta2;
+//Console.WriteLine(conta1 == conta2);
+
+//conta
+
+
+
+
+//Console.WriteLine("Titular: " + conta1.Titular);
+//Console.WriteLine("Número da conta: " + conta1.Conta);
+//Console.WriteLine("Número da agencia: " + conta1.NumeroAgencia);
+//Console.WriteLine("Nome da agencia: " + conta1.NomeAgencia);
+//Console.WriteLine("Saldo da conta: " + conta1.Saldo);
+
+//Pessoa paciente1 = new Pessoa();
+//Console.WriteLine(paciente1.nomePessoa);
+//Console.WriteLine(paciente1.idade);
+//Console.WriteLine(paciente1.altura);
+//Console.WriteLine(paciente1.peso);
+
+
+
