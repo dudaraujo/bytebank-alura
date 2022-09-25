@@ -8,7 +8,7 @@ Console.WriteLine("Boas vindas ao seu banco, ByteBank!!");
 
 //Criando uma nova conta com o escopo ContaCorenete,que é uma classe
 //Criando um objeto
-ContaCorrente conta1 = new ContaCorrente();
+ContaCorrente conta1 = new ContaCorrente("Agencia Sul");
 
 
 //Acessando a propriedade de uma class
@@ -16,16 +16,16 @@ ContaCorrente conta1 = new ContaCorrente();
 //conta1.Titular = "Maria Eduarda";
 conta1.Conta = "10123-X";
 conta1.NumeroAgencia = 23;
-conta1.NomeAgencia = "Agencia Sul";
+//conta1.NomeAgencia = "Agencia Sul";
 //Não consigo mais definir o saldo dessa forma pois a variável foi definida como private
 //conta1.saldo = 1000;
 conta1.SetSaldo(1000);
 
-ContaCorrente conta2 = new ContaCorrente();
+ContaCorrente conta2 = new ContaCorrente("Agencia Norte");
 //conta2.Titular = "Gabriel de Almeida";
 conta2.Conta = "10123-E";
 conta2.NumeroAgencia = 25;
-conta2.NomeAgencia = "Agencia Norte";
+//conta2.NomeAgencia = "Agencia Norte";
 //conta2.saldo = 2000;
 conta2.SetSaldo(2000);
 
@@ -94,17 +94,17 @@ gabris.Nome = "Gabriel de Almeida";
 gabris.Cpf = "78978978941";
 gabris.Profissao = "Developer";
 
-ContaCorrente conta3 = new ContaCorrente();
+ContaCorrente conta3 = new ContaCorrente("Agencia Central");
 conta3.Titular = gabris;
 conta3.Conta = "12141";
 conta3.NumeroAgencia = 12;
-conta3.NomeAgencia = "Agencia Central";
+//conta3.NomeAgencia = "Agencia Central";
 conta3.SetSaldo(4000);
 
 Console.WriteLine("O NOME DO CLINTE DA CONTA3 É: " + conta3.Titular.Nome);
 
 //Outra forma de criar objetos e atribuir valores 
-ContaCorrente conta4 = new ContaCorrente();
+ContaCorrente conta4 = new ContaCorrente("Agencia da Isa");
 Cliente isa = new Cliente();
 conta4.Titular = isa;
 conta4.Titular.Nome = "Isa";
@@ -129,3 +129,13 @@ Console.WriteLine("Saldo da conta4: " + conta4.Saldo);
 
 Cliente sarah = new Cliente();
 
+
+Console.WriteLine(conta1.NomeAgencia);
+Console.WriteLine(conta2.NomeAgencia);
+Console.WriteLine(conta3.NomeAgencia);
+Console.WriteLine(conta4.NomeAgencia);
+
+//ACASANDO UMA PROPRIEDADE ESTÁTICA DA CLASSE ContaCorrente
+Console.WriteLine("Total de contas criadas: " + ContaCorrente.TotalDeContasCriadas);
+
+Console.WriteLine("Total de clientes cadastrados: " + Cliente.TotalDeClientesCadastrados);
