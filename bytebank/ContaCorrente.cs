@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +16,18 @@ namespace bytebank
     {
         //Um campo é uma variável definida dentro do corpo de uma classe
        //Clinete Titular é onde eu estou juntando a classe Cliente com a classe ContaCorrente
-        public Cliente Titular;
-        public string conta;
-        public int numeroAgencia;
-        public string nomeAgencia;
-        public double saldo;
+        private Cliente titular;
+        public string Conta { get; set; }
+
+        public int NumeroAgencia { get; set; }
+
+        //variáveis que não possuem nenhuma validação para aceitar valores, podem ser declaradas diretamente como propriedades 
+        public string NomeAgencia { get; set; }
+
+
+        //definindo o saldo como provado pois assim não é possível 
+        //mudar o saldo sem ser por algum método
+        private double saldo;
 
         //Definindo um método, um comportamento existente no mundo real 
         //Usando o bool pois quero que ele retorne uma valor booleano
@@ -64,10 +72,48 @@ namespace bytebank
         public void ExibirDados()
         {
             Console.WriteLine(Titular);
-            Console.WriteLine(conta);
-            Console.WriteLine(nomeAgencia);
-            Console.WriteLine(numeroAgencia);
-            Console.WriteLine(saldo);
+            Console.WriteLine(Conta);
+            Console.WriteLine(NomeAgencia);
+            Console.WriteLine(NumeroAgencia);
+            Console.WriteLine(Saldo);
+        }
+
+        public double GetSaldo()
+        {
+            return saldo;
+        }
+
+        public void SetSaldo(double valor)
+        {
+            if(valor > 0 )
+            {
+                saldo = saldo + valor;
+            } 
+          
+        }
+
+        //Melhor forma de fazer o get e set
+
+        public double Saldo
+        {
+            get
+            {
+                return saldo;
+            }
+
+            set
+            {
+                if (value > 0)
+                {
+                    saldo = saldo + value;
+                }
+            }
+        }
+
+        public Cliente Titular
+        {
+            get { return titular; }
+            set { titular = value;  }
         }
     }
 }
