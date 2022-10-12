@@ -42,11 +42,11 @@ conta1 = conta2;
 //Console.Writeline(conta1 == conta2);
 
 
-Console.WriteLine("Titular: " + conta1.Titular);
-Console.WriteLine("Número da conta: " + conta1.Conta);
-Console.WriteLine("Número da agencia: " + conta1.NumeroAgencia);
-Console.WriteLine("Nome da agencia: " + conta1.NomeAgencia);
-Console.WriteLine("Saldo da conta: " + conta1.GetSaldo());
+//Console.WriteLine("Titular: " + conta1.Titular);
+//Console.WriteLine("Número da conta: " + conta1.Conta);
+//Console.WriteLine("Número da agencia: " + conta1.NumeroAgencia);
+//Console.WriteLine("Nome da agencia: " + conta1.NomeAgencia);
+//Console.WriteLine("Saldo da conta: " + conta1.GetSaldo());
 
 //Pessoa paciente1 = new Pessoa();
 //Console.WriteLine(paciente1.nomePessoa);
@@ -54,33 +54,33 @@ Console.WriteLine("Saldo da conta: " + conta1.GetSaldo());
 //Console.WriteLine(paciente1.altura);
 //Console.WriteLine(paciente1.peso);
 
-Console.WriteLine("Saldo da conta da Maria Eduarda: " + conta1.GetSaldo());
+//Console.WriteLine("Saldo da conta da Maria Eduarda: " + conta1.GetSaldo());
 
 //Colocando o retorno do método sacar dentro da variável saque
 bool saque = conta1.Sacar(50);
-Console.WriteLine("Retorno do método sacar: " + saque);
-Console.WriteLine("Saldo da conta da Maria Eduarda após o saque: " + conta1.GetSaldo());
+//Console.WriteLine("Retorno do método sacar: " + saque);
+//Console.WriteLine("Saldo da conta da Maria Eduarda após o saque: " + conta1.GetSaldo());
 
 
 ////Deposito
-Console.WriteLine("Saldo da conta da Duda antes de depositar: " + conta1.GetSaldo());
+//Console.WriteLine("Saldo da conta da Duda antes de depositar: " + conta1.GetSaldo());
 conta1.Depositar(1000);
-Console.WriteLine("Saldo da conta da Duda depois de depositar: " + conta1.GetSaldo());
+//Console.WriteLine("Saldo da conta da Duda depois de depositar: " + conta1.GetSaldo());
 
 
 ////Transferência
-Console.WriteLine("Saldo da conta1 antes da tranferência: " + conta1.GetSaldo());
-Console.WriteLine("Saldo da conta2 antes da tranferênia " + conta2.GetSaldo());
+//Console.WriteLine("Saldo da conta1 antes da tranferência: " + conta1.GetSaldo());
+//Console.WriteLine("Saldo da conta2 antes da tranferênia " + conta2.GetSaldo());
 bool tranferencia = conta1.Transferir(1000, conta2);
-Console.WriteLine("Tranferência realizada? " + tranferencia);
-Console.WriteLine("Saldo da conta1 depois da tranferência: " + conta1.GetSaldo());
-Console.WriteLine("Saldo da conta2 depois da tranferênia " + conta2.GetSaldo());
+//Console.WriteLine("Tranferência realizada? " + tranferencia);
+//Console.WriteLine("Saldo da conta1 depois da tranferência: " + conta1.GetSaldo());
+//Console.WriteLine("Saldo da conta2 depois da tranferênia " + conta2.GetSaldo());
 
 
 
 ////Exibir dados
-conta1.ExibirDados();
-conta2.ExibirDados();
+//conta1.ExibirDados();
+//conta2.ExibirDados();
 
 
 //Criando objeto cliente
@@ -101,7 +101,7 @@ conta3.NumeroAgencia = 12;
 //conta3.NomeAgencia = "Agencia Central";
 conta3.SetSaldo(4000);
 
-Console.WriteLine("O NOME DO CLINTE DA CONTA3 É: " + conta3.Titular.Nome);
+//Console.WriteLine("O NOME DO CLINTE DA CONTA3 É: " + conta3.Titular.Nome);
 
 //Outra forma de criar objetos e atribuir valores 
 ContaCorrente conta4 = new ContaCorrente("Agencia da Isa");
@@ -111,31 +111,36 @@ conta4.Titular.Nome = "Isa";
 conta4.Titular.Profissao = "Engenheira de Produção";
 
 
-Console.WriteLine("O nome e a profissão do titular da conta 4 é: " + conta4.Titular.Nome + "e " + conta4.Titular.Profissao);
+//Console.WriteLine("O nome e a profissão do titular da conta 4 é: " + conta4.Titular.Nome + "e " + conta4.Titular.Profissao);
 
 //Não posso setar nem exibir o saldo dessa forma pois defini a variável saldo como private
 //conta4.saldo = -10;
 //Console.WriteLine(conta4.saldo);
 
 conta4.SetSaldo(10);
-Console.WriteLine(conta4.GetSaldo());
+//Console.WriteLine(conta4.GetSaldo());
 
 //Utilizando forma mais correta do set e get
 //Estou chamando a propriedade Saldo que é publica e tem o get e set
 //NÃO estou chamando diretamente a variável saldo
 conta4.Saldo = 1000;
-Console.WriteLine("Saldo da conta4: " + conta4.Saldo);
+//Console.WriteLine("Saldo da conta4: " + conta4.Saldo);
 
 
 Cliente sarah = new Cliente();
 
 
-Console.WriteLine(conta1.NomeAgencia);
-Console.WriteLine(conta2.NomeAgencia);
-Console.WriteLine(conta3.NomeAgencia);
-Console.WriteLine(conta4.NomeAgencia);
+//Console.WriteLine(conta1.NomeAgencia);
+//Console.WriteLine(conta2.NomeAgencia);
+//Console.WriteLine(conta3.NomeAgencia);
+//Console.WriteLine(conta4.NomeAgencia);
 
-//ACASANDO UMA PROPRIEDADE ESTÁTICA DA CLASSE ContaCorrente
+ContaCorrente contaCorrente = new ContaCorrente("Agência ITI");
+
+Console.WriteLine(ContaCorrente.TaxaOpecacao);
+
+//Acessando uma propriedade estática da classe ContaCorrente
 Console.WriteLine("Total de contas criadas: " + ContaCorrente.TotalDeContasCriadas);
 
 Console.WriteLine("Total de clientes cadastrados: " + Cliente.TotalDeClientesCadastrados);
+

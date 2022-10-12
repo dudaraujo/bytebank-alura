@@ -11,28 +11,44 @@ using bytebank.Titular;
 //Eu posso ter várias classes dentro de um namespace
 namespace bytebank
 {
-    //Clase é um modelo para criar objetos, um escopo
+    //Classe é um modelo para criar objetos, um escopo
     public class ContaCorrente
     {
         //Um campo é uma variável definida dentro do corpo de uma classe
-        //Clinete Titular é onde eu estou juntando a classe Cliente com a classe ContaCorrente
+        //Clinte Titular é onde eu estou juntando a classe Cliente com a classe ContaCorrente
         private Cliente titular;
         public string Conta { get; set; }
 
         public int NumeroAgencia { get; set; }
 
-        //variáveis que não possuem nenhuma validação para aceitar valores, podem ser declaradas diretamente como propriedades 
+        //variáveis que não possuem nenhuma validação para aceitar valores,
+        //podem ser declaradas diretamente como propriedades 
         private string nomeAgencia;
 
 
-        //definindo o saldo como provado pois assim não é possível 
-        //mudar o saldo sem ser por algum método
+        //definindo o saldo como privado pois assim não é possível mudar o saldo sem ser por algum método
         private double saldo;
 
-        //Definindo método contrutor da classe. Ele vai ser chamado toda vez que iniciarmos uma isntância
+        //Definindo uma propiedade estática, qua vai ser parte da classe em si, não da instancia de objeto
+        public static int TotalDeContasCriadas { get; private set; }
+
+        public static double TaxaOpecacao { get; private set; }
+
+        //Definindo método contrutor da classe. Ele vai ser chamado toda vez que iniciarmos uma instância
         public ContaCorrente(string nomeAgencia)
         {
+            try
+            {
+                TaxaOpecacao = 30 / TotalDeContasCriadas;
+            }
+            catch(DivideByZeroException excecao)
+            {
+                Console.WriteLine("Não é possível calcular a taxa de operação pois o divisor é 0");
+                Console.WriteLine(excecao.Message);
+                Console.WriteLine(excecao.StackTrace);
+            }
             NomeAgencia = nomeAgencia;
+           
             TotalDeContasCriadas += 1;
         }
 
@@ -137,7 +153,6 @@ namespace bytebank
 
         }
 
-        //Definindo uma propiedade estática, qua vai ser parte da classe em si, não da instancia de objeto
-        public static int TotalDeContasCriadas { get; set; }
+       
     }
 }
