@@ -41,12 +41,19 @@ namespace bytebank
             {
                 TaxaOpecacao = 30 / TotalDeContasCriadas;
             }
-            catch(DivideByZeroException excecao)
+            catch (DivideByZeroException excecao)
             {
                 Console.WriteLine("Não é possível calcular a taxa de operação pois o divisor é 0");
                 Console.WriteLine(excecao.Message);
                 Console.WriteLine(excecao.StackTrace);
             }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Ocorreu um erro de referência nula");
+            }
+
+            //throw new ArgumentException("O argumento nome da agência não pode ser null");
+
             NomeAgencia = nomeAgencia;
            
             TotalDeContasCriadas += 1;
@@ -147,9 +154,11 @@ namespace bytebank
 
             set
             {
-                if (value != null)
+                if (value != null) { 
+                }
                     nomeAgencia = value;
             }
+           
 
         }
 

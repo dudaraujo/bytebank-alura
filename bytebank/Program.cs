@@ -137,10 +137,19 @@ Cliente sarah = new Cliente();
 
 ContaCorrente contaCorrente = new ContaCorrente("Agência ITI");
 
-Console.WriteLine(ContaCorrente.TaxaOpecacao);
+//Console.WriteLine(ContaCorrente.TaxaOpecacao);
 
 //Acessando uma propriedade estática da classe ContaCorrente
 Console.WriteLine("Total de contas criadas: " + ContaCorrente.TotalDeContasCriadas);
 
 Console.WriteLine("Total de clientes cadastrados: " + Cliente.TotalDeClientesCadastrados);
 
+//try
+//{
+//    ContaCorrente lua = new ContaCorrente(null);
+//}
+//catch(ArgumentException ex)
+//{
+//    Console.WriteLine("Ocorreu um erro do tipo ArgumentExeception");
+//    Console.WriteLine(ex.Message);
+//}
