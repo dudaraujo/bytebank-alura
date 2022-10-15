@@ -61,17 +61,17 @@ namespace bytebank
 
 
         //Definindo um método, um comportamento existente no mundo real 
-        //Usando o bool pois quero que ele retorne uma valor booleano
-        public bool Sacar(double valor)
+        public void Sacar(double valor)
         {
             if (saldo > valor && valor > 0)
             {
                 saldo = saldo - valor;
-                return true;
+               
             }
             else
             {
-                return false;
+                //Caso caia no else, queremos que seja tratado como a exceão criada 
+                throw new SaldoInsulficienteException("Saldo insulficiente para saque no valor de R$" + valor);
             }
         }
 

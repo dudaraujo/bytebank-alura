@@ -57,7 +57,7 @@ conta1 = conta2;
 //Console.WriteLine("Saldo da conta da Maria Eduarda: " + conta1.GetSaldo());
 
 //Colocando o retorno do método sacar dentro da variável saque
-bool saque = conta1.Sacar(50);
+//bool saque = conta1.Sacar(50);
 //Console.WriteLine("Retorno do método sacar: " + saque);
 //Console.WriteLine("Saldo da conta da Maria Eduarda após o saque: " + conta1.GetSaldo());
 
@@ -144,12 +144,20 @@ Console.WriteLine("Total de contas criadas: " + ContaCorrente.TotalDeContasCriad
 
 Console.WriteLine("Total de clientes cadastrados: " + Cliente.TotalDeClientesCadastrados);
 
-//try
-//{
-//    ContaCorrente lua = new ContaCorrente(null);
-//}
-//catch(ArgumentException ex)
-//{
-//    Console.WriteLine("Ocorreu um erro do tipo ArgumentExeception");
-//    Console.WriteLine(ex.Message);
-//}
+try
+{
+    ContaCorrente lua = new ContaCorrente("Luc");
+    lua.Depositar(50);
+    lua.Sacar(500);
+    Console.WriteLine(lua.Saldo);
+}
+catch (ArgumentException ex)
+{
+    Console.WriteLine("Ocorreu um erro do tipo ArgumentExeception");
+    Console.WriteLine(ex.Message);
+}
+catch(SaldoInsulficienteException ex)
+{
+    Console.WriteLine("Ocorreu um erro do tipo Saldo insulficiente Exceptions");
+    Console.WriteLine(ex.Message); 
+}
