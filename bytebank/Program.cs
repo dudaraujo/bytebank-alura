@@ -159,5 +159,6 @@ catch (ArgumentException ex)
 catch(SaldoInsulficienteException ex)
 {
     Console.WriteLine("Ocorreu um erro do tipo Saldo insulficiente Exceptions");
-    Console.WriteLine(ex.Message); 
+    Console.WriteLine(ex.Message);
+    Console.WriteLine("Stack Trace" + ex.StackTrace);
 }
