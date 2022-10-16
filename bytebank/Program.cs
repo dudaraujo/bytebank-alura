@@ -71,7 +71,7 @@ conta1.Depositar(1000);
 ////Transferência
 //Console.WriteLine("Saldo da conta1 antes da tranferência: " + conta1.GetSaldo());
 //Console.WriteLine("Saldo da conta2 antes da tranferênia " + conta2.GetSaldo());
-bool tranferencia = conta1.Transferir(1000, conta2);
+//bool tranferencia = conta1.Transferir(1000, conta2);
 //Console.WriteLine("Tranferência realizada? " + tranferencia);
 //Console.WriteLine("Saldo da conta1 depois da tranferência: " + conta1.GetSaldo());
 //Console.WriteLine("Saldo da conta2 depois da tranferênia " + conta2.GetSaldo());
@@ -147,9 +147,11 @@ Console.WriteLine("Total de clientes cadastrados: " + Cliente.TotalDeClientesCad
 try
 {
     ContaCorrente lua = new ContaCorrente("Luc");
+    ContaCorrente sol = new ContaCorrente("Luc");
     lua.Depositar(50);
-    lua.Sacar(500);
+    //lua.Sacar(500);
     Console.WriteLine(lua.Saldo);
+    lua.Transferir(500, sol);
 }
 catch (ArgumentException ex)
 {
@@ -160,5 +162,11 @@ catch(SaldoInsulficienteException ex)
 {
     Console.WriteLine("Ocorreu um erro do tipo Saldo insulficiente Exceptions");
     Console.WriteLine(ex.Message);
-    Console.WriteLine("Stack Trace" + ex.StackTrace);
+    //Console.WriteLine("Stack Trace" + ex.StackTrace);
+}
+catch(OperacaoFinanceiraException ex)
+{
+    Console.WriteLine("Ocorreu um erro do tipo Operação Financeira Exceptions");
+    //Console.WriteLine(ex.Message);
+    Console.WriteLine("Inner Exceptiojns: " + ex.InnerException.Message);
 }

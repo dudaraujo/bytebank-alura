@@ -31,8 +31,9 @@ namespace bytebank
 
         //Definindo uma propiedade estática, qua vai ser parte da classe em si, não da instancia de objeto
         public static int TotalDeContasCriadas { get; private set; }
-
         public static double TaxaOpecacao { get; private set; }
+        public int ContadorSaquesNaoPermitidos { get; private set; }
+        public int ContadorTransferenciasNaoPermitidas { get; private set; }
 
         //Definindo método contrutor da classe. Ele vai ser chamado toda vez que iniciarmos uma instância
         public ContaCorrente(string nomeAgencia)
@@ -72,6 +73,7 @@ namespace bytebank
             {
                 //Caso caia no else, queremos que seja tratado como a exceão criada 
                 throw new SaldoInsulficienteException("Saldo insulficiente para saque no valor de R$" + valor);
+                ContadorSaquesNaoPermitidos++;
             }
         }
 
@@ -86,17 +88,18 @@ namespace bytebank
 
 
         //Passando como referência o valor que será tranferido e o objeto que receberá o valor 
-        public bool Transferir(double valor, ContaCorrente destino)
+        public void Transferir(double valor, ContaCorrente destino)
         {
             if (saldo > valor && valor > 0)
             {
                 saldo = saldo - valor;
                 destino.saldo = destino.saldo + valor;
-                return true;
+               
             }
             else
             {
-                return false;
+                throw new OperacaoFinanceiraException("Saldo insulficiente para transferencia no valor de R$" + valor);
+                ContadorTransferenciasNaoPermitidas++;
             }
         }
 
@@ -119,6 +122,7 @@ namespace bytebank
             if (valor > 0)
             {
                 saldo = saldo + valor;
+                
             }
 
         }
