@@ -89,6 +89,8 @@ duda.Nome = "Maria Eduarda";
 duda.Cpf = "12312312315";
 duda.Profissao = "QA Analyst";
 
+
+
 Cliente gabris = new Cliente();
 gabris.Nome = "Gabriel de Almeida";
 gabris.Cpf = "78978978941";
@@ -170,3 +172,4 @@ catch(OperacaoFinanceiraException ex)
     //Console.WriteLine(ex.Message);
     Console.WriteLine("Inner Exceptiojns: " + ex.InnerException.Message);
 }
+
